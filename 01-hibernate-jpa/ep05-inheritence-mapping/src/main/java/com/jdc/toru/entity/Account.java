@@ -12,6 +12,7 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
 //@MappedSuperclass //parent ma pr //parent si ka field  ya tae child twy htwt lr

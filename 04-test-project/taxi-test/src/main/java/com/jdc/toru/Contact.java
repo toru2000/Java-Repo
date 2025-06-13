@@ -10,6 +10,7 @@ import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
 
 
+
 @Entity
 @Table(name = "contact_tbl")
 public class Contact{
