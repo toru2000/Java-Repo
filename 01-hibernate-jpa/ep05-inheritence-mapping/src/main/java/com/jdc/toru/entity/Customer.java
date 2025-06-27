@@ -1,5 +1,6 @@
 package com.jdc.toru.entity;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -9,6 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@DiscriminatorValue("3")
 public class Customer extends Account{
 	@Enumerated(EnumType.STRING)
 	private MemberType memberType;

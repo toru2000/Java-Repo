@@ -1,6 +1,5 @@
 package com.jdc.toru;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -8,8 +7,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
-
-
 
 @Entity
 @Table(name = "contact_tbl")

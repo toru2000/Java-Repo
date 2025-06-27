@@ -6,9 +6,9 @@
 	<artifactId>01-hibernate-jpa</artifactId>
 	<version>1.0</version>
 	<packaging>pom</packaging>
-	
+
 	<properties>
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -18,30 +18,44 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>6.6.17.Final</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.38</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<version>5.13.0</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
+			<version>6.6.17.Final</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.14.0</version>
-				
+
 				<configuration>
 					<release>21</release>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.hibernate</groupId>
+							<artifactId>hibernate-jpamodelgen</artifactId>
+							<version>6.6.17.Final</version>
+						</path>
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -56,5 +70,7 @@
 		<module>00-test-project</module>
 		<module>test_db</module>
 		<module>ep05-inheritence-mapping</module>
+		<module>06-entityManager</module>
+		<module>ep07-Query</module>
 	</modules>
 </project>

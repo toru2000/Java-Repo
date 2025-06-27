@@ -3,7 +3,14 @@ package com.jdc.toru.entity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import com.jdc.toru.entity.converters.StringConverter;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Converter;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -17,7 +24,11 @@ import lombok.Getter;
 @Data
 //@MappedSuperclass //parent ma pr //parent si ka field  ya tae child twy htwt lr
 @Entity        //parent tbl pe htwt pee kyan tae child ma pr lr
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) //SINGLE_TABLE ka default
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) //SINGLE_TABLE ka default
+@DiscriminatorColumn(
+		name = "entityName",
+		discriminatorType = DiscriminatorType.INTEGER)
+@DiscriminatorValue("1")
 public abstract class Account {
 	
 	@Id
@@ -28,7 +39,7 @@ public abstract class Account {
 	private String username;
 	
 	@Column(nullable = false,length = 30)
-	private int password;
+	private String password;
 	
 	@Enumerated(EnumType.STRING)
 	private AccountType accountType;
@@ -36,6 +47,9 @@ public abstract class Account {
 	private LocalDate createDateAt;
 	
 	private LocalTime createTimeAt;
+	
+	@Convert(converter = StringConverter.class)
+	private String value;
 	
 	public enum AccountType{
 		EMPLOYEE,MANAGER,CUSTOMER

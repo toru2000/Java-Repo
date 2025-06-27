@@ -1,6 +1,4 @@
 package com.jdc.toru.dto;
-
-
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -16,8 +14,6 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
 import lombok.Setter;
-
-
 
 @Entity
 @Getter
